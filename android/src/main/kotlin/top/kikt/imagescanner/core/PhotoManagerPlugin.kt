@@ -92,7 +92,7 @@ class PhotoManagerPlugin(private val registrar: PluginRegistry.Registrar) : Meth
         }
 
         permissionsUtils.apply {
-            withActivity(registrar.activity() as AppCompatActivity)
+            withActivity(registrar.activity())
             permissionsListener = object : PermissionsListener {
                 override fun onDenied(deniedPermissions: Array<out String>?) {
                     LogUtils.info("onDenied call.method = ${call.method}")
@@ -225,7 +225,7 @@ class PhotoManagerPlugin(private val registrar: PluginRegistry.Registrar) : Meth
                     }
                 }
             }
-        }.getPermissions(registrar.activity() as AppCompatActivity, 3001, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        }.getPermissions(registrar.activity(), 3001, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
 
     }
 

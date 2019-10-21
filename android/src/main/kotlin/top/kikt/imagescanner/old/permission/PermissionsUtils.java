@@ -1,6 +1,7 @@
 package top.kikt.imagescanner.old.permission;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -31,7 +32,7 @@ public final class PermissionsUtils {
     /**
      * 需要申请权限的Activity
      */
-    private AppCompatActivity mActivity;
+    private Activity mActivity;
 
     /**
      * 需要申请的权限的List
