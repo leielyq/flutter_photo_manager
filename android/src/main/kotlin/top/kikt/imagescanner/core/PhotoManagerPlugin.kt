@@ -3,6 +3,7 @@ package top.kikt.imagescanner.core
 import android.Manifest
 import android.os.Build
 import android.os.Handler
+import android.support.v7.app.AppCompatActivity
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.PluginRegistry
@@ -91,7 +92,7 @@ class PhotoManagerPlugin(private val registrar: PluginRegistry.Registrar) : Meth
         }
 
         permissionsUtils.apply {
-            withActivity(registrar.activity())
+            withActivity(registrar.activity() as AppCompatActivity)
             permissionsListener = object : PermissionsListener {
                 override fun onDenied(deniedPermissions: Array<out String>?) {
                     LogUtils.info("onDenied call.method = ${call.method}")
@@ -224,7 +225,7 @@ class PhotoManagerPlugin(private val registrar: PluginRegistry.Registrar) : Meth
                     }
                 }
             }
-        }.getPermissions(registrar.activity(), 3001, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        }.getPermissions(registrar.activity() as AppCompatActivity, 3001, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
 
     }
 
