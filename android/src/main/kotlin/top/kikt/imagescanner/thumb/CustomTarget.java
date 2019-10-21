@@ -1,6 +1,7 @@
 package top.kikt.imagescanner.thumb;
 
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.bumptech.glide.request.Request;
