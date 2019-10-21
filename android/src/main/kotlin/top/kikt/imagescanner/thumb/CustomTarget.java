@@ -1,14 +1,14 @@
 package top.kikt.imagescanner.thumb;
 
 import android.graphics.drawable.Drawable;
+import android.support.annotation.Nullable;
 
 import com.bumptech.glide.request.Request;
 import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.util.Util;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 
 /**
  * Created by debuggerx on 18-9-27 下午1:40

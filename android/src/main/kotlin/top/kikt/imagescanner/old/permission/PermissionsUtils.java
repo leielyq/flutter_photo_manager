@@ -1,7 +1,6 @@
 package top.kikt.imagescanner.old.permission;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,16 +8,19 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 
+import androidx.annotation.NonNull;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityCompat;
 import top.kikt.imagescanner.util.LogUtils;
 
 /**
@@ -30,7 +32,7 @@ public final class PermissionsUtils {
     /**
      * 需要申请权限的Activity
      */
-    private Activity mActivity;
+    private AppCompatActivity mActivity;
 
     /**
      * 需要申请的权限的List
@@ -68,7 +70,7 @@ public final class PermissionsUtils {
      * @param activity 哪一个Activity进行权限操作
      * @return 返回 {@link PermissionsUtils} 自身，进行链式调用
      */
-    public PermissionsUtils withActivity(Activity activity) {
+    public PermissionsUtils withActivity(AppCompatActivity activity) {
         this.mActivity = activity;
         return this;
     }
@@ -80,7 +82,7 @@ public final class PermissionsUtils {
      * @param permissions 要申请的权限数组
      * @return 返回 {@link PermissionsUtils} 自身，进行链式调用
      */
-    public PermissionsUtils getPermissions(Activity activity, int requestCode, String... permissions) {
+    public PermissionsUtils getPermissions(AppCompatActivity activity, int requestCode, String... permissions) {
         getPermissionsWithTips(activity, requestCode, null, permissions);
         return this;
     }
@@ -95,7 +97,7 @@ public final class PermissionsUtils {
      * @return 返回 {@link PermissionsUtils} 自身，进行链式调用
      */
     @TargetApi(23)
-    private PermissionsUtils getPermissionsWithTips(Activity activity, int requestCode, String[] tips, String... permissions) {
+    private PermissionsUtils getPermissionsWithTips(AppCompatActivity activity, int requestCode, String[] tips, String... permissions) {
         if (mActivity == null) {
             throw new NullPointerException("获取权限的Activity不存在");
         }

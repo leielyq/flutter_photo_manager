@@ -4,7 +4,8 @@ import android.content.Context
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
-import androidx.annotation.RequiresApi
+import android.support.annotation.RequiresApi
+
 import java.io.File
 import java.io.FileOutputStream
 
@@ -25,7 +26,6 @@ class AndroidQCache {
     private fun getCachePath(context: Context): String = "$context.cacheDir/photo_manager"
 
 
-    @RequiresApi(Build.VERSION_CODES.Q)
     fun getCacheFile(context: Context, assetId: String, extName: String): File {
         val name = "${assetId}_$extName"
 
